@@ -1,5 +1,6 @@
 # Import necessary libraries from Flask
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+import os   
 
 # Import the database instance and model from models.py
 from models import db, StudyEntry
@@ -7,7 +8,7 @@ from models import db, StudyEntry
 from datetime import datetime # Import datetime for handling date fields
 
 # Create/Initialize the Flask application
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # Configure the SQLite database location
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
